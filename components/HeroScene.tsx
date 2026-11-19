@@ -2,10 +2,15 @@
 
 import { useEffect, useRef } from 'react';
 
-const RINGS = [
-  { size: 100, spin: 'spin-x' },
-  { size: 76, spin: 'spin-y' },
-  { size: 52, spin: 'spin-z' },
+const CODE = [
+  { w: 46, i: 0, c: '#d4566a' },
+  { w: 66, i: 1, c: '#f6f1f1' },
+  { w: 38, i: 1, c: '#b7abad' },
+  { w: 74, i: 2, c: '#f6f1f1' },
+  { w: 52, i: 2, c: '#d4566a' },
+  { w: 30, i: 1, c: '#b7abad' },
+  { w: 60, i: 1, c: '#f6f1f1' },
+  { w: 20, i: 0, c: '#d4566a' },
 ];
 
 export default function HeroScene() {
@@ -86,14 +91,46 @@ export default function HeroScene() {
       <div ref={stage} data-paused="false" className="scene">
         <div className="scene-entry">
           <div className="scene-tilt">
-            {RINGS.map((ring) => (
-              <div
-                key={ring.spin}
-                className={`ring ${ring.spin}`}
-                style={{ width: `${ring.size}%`, height: `${ring.size}%` }}
-              />
-            ))}
-            <div className="core" />
+            <div className="laptop-turn">
+              <div className="laptop">
+                <div className="shadow" />
+                <div className="base">
+                  <div className="keys" />
+                  <div className="pad" />
+                </div>
+                <div className="lid">
+                  <div className="lid-front">
+                    <div className="screen">
+                      <div className="screen-bar">
+                        <i />
+                        <i />
+                        <i />
+                      </div>
+                      {CODE.map((line, n) => (
+                        <span
+                          key={n}
+                          className="code-line"
+                          style={
+                            {
+                              '--w': line.w,
+                              '--i': line.i,
+                              '--c': line.c,
+                              '--n': n,
+                            } as React.CSSProperties
+                          }
+                        />
+                      ))}
+                      <span className="code-caret" />
+                    </div>
+                  </div>
+                  <div className="lid-back">
+                    <span className="display">
+                      RM<b>.</b>
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>

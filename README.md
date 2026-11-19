@@ -2,7 +2,7 @@
 
 Bach. Ingeniería de Sistemas — Universidad Nacional de Cajamarca.
 
-Portfolio personal bilingüe (es/en), mobile-first, con tipografía de gran formato y un giroscopio 3D hecho solo con CSS. Construido con **Next.js**, **Tailwind CSS v4** y **Framer Motion**.
+Portfolio personal bilingüe (es/en), mobile-first, con tipografía de gran formato y un laptop 3D hecho solo con CSS. Construido con **Next.js**, **Tailwind CSS v4** y **Framer Motion**.
 
 ## Stack
 
@@ -18,7 +18,7 @@ Portfolio personal bilingüe (es/en), mobile-first, con tipografía de gran form
 
 ## Secciones
 
-- **Inicio** — Nombre en gran formato y giroscopio 3D que reacciona al cursor, al giroscopio del móvil y al scroll
+- **Inicio** — Nombre en gran formato y un laptop 3D con código que se escribe solo y el logo en la tapa; reacciona al cursor, al giroscopio del móvil y al scroll (se cierra al bajar)
 - **Sobre mí** — Texto con revelado por scroll y stack tecnológico
 - **Proyectos** — Paneles de borde a borde con ilustraciones propias por proyecto
 - **Educación y certificaciones**
@@ -32,7 +32,7 @@ Portfolio personal bilingüe (es/en), mobile-first, con tipografía de gran form
 - **Responsive** — Diseñado primero para móvil
 - **Accesibilidad** — Contraste AA, foco visible, `prefers-reduced-motion`
 - **SEO** — Open Graph, sitemap, robots.txt y JSON-LD
-- **Rendimiento** — Sin librerías 3D: el giroscopio usa CSS 3D y la cinta de tecnologías, una animación CSS
+- **Rendimiento** — Sin librerías 3D: el laptop usa CSS 3D y la cinta de tecnologías, una animación CSS
 
 ## Estructura
 
