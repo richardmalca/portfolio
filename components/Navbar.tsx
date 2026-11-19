@@ -14,7 +14,15 @@ const SECTION_IDS = navItems.map((i) => i.id);
 export default function Navbar() {
   const { t, lang, toggleLang } = useLanguage();
   const [open, setOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
   const activeId = useScrollSpy(SECTION_IDS);
+
+  useEffect(() => {
+    const update = () => setScrolled(window.scrollY > 24);
+    update();
+    window.addEventListener('scroll', update, { passive: true });
+    return () => window.removeEventListener('scroll', update);
+  }, []);
 
   useEffect(() => {
     document.body.style.overflow = open ? 'hidden' : '';
@@ -40,7 +48,12 @@ export default function Navbar() {
 
   return (
     <>
-      <header className="from-ground via-ground/85 fixed inset-x-0 top-0 z-50 flex items-center justify-between bg-gradient-to-b to-transparent px-5 pt-4 pb-6 sm:px-8 md:px-12">
+      <header
+        className={cn(
+          'fixed inset-x-0 top-0 z-50 flex items-center justify-between px-5 py-3 transition-colors duration-300 sm:px-8 md:px-12',
+          scrolled ? 'bg-ground hairline border-b' : 'bg-transparent',
+        )}
+      >
         <a
           href="#hero"
           onClick={(e) => {

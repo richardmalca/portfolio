@@ -57,11 +57,22 @@ export default function HeroScene() {
       ty = Math.max(-1, Math.min(1, (e.beta - 45) / 35));
       kick();
     }
+    let scrollRaf = 0;
+    function onScroll() {
+      cancelAnimationFrame(scrollRaf);
+      scrollRaf = requestAnimationFrame(() => {
+        const p = Math.min(1, Math.max(0, window.scrollY / (window.innerHeight * 0.9)));
+        el!.style.setProperty('--sp', p.toFixed(3));
+      });
+    }
+    window.addEventListener('scroll', onScroll, { passive: true });
     window.addEventListener('pointermove', onMove, { passive: true });
     window.addEventListener('deviceorientation', onTilt, { passive: true });
     return () => {
       cancelAnimationFrame(raf);
       io.disconnect();
+      cancelAnimationFrame(scrollRaf);
+      window.removeEventListener('scroll', onScroll);
       window.removeEventListener('pointermove', onMove);
       window.removeEventListener('deviceorientation', onTilt);
     };

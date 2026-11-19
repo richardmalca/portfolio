@@ -1,10 +1,12 @@
 'use client';
 
-import type { ElementType, ReactNode } from 'react';
-import { m } from 'framer-motion';
+import { Fragment, useRef, type ElementType, type ReactNode } from 'react';
+import { m, useMotionValue, useReducedMotion, useSpring } from 'framer-motion';
 import { cn } from '@/utils/cn';
 
 export const EASE = [0.16, 1, 0.3, 1] as const;
+
+const IN_VIEW = { once: true, amount: 'some', margin: '0px 0px 18% 0px' } as const;
 
 export function Reveal({
   children,
@@ -20,7 +22,7 @@ export function Reveal({
       className={className}
       initial={{ opacity: 0, y: 28 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, amount: 'some', margin: '0px 0px 18% 0px' }}
+      viewport={IN_VIEW}
       transition={{ duration: 0.9, ease: EASE, delay }}
     >
       {children}
@@ -37,23 +39,81 @@ export function BigTitle({
   as?: ElementType;
   className?: string;
 }) {
+  const words = children.split(' ');
+  let index = 0;
+
+  return (
+    <m.div initial="hidden" whileInView="visible" viewport={IN_VIEW}>
+      <Tag aria-label={children} className={cn('display text-[17vw] md:text-[12vw]', className)}>
+        {words.map((word, wi) => (
+          <Fragment key={wi}>
+            <span
+              aria-hidden="true"
+              className="inline-block overflow-hidden pb-[0.06em] align-bottom"
+            >
+              {Array.from(word).map((letter) => {
+                const i = index++;
+                return (
+                  <m.span
+                    key={i}
+                    className="inline-block"
+                    custom={i}
+                    variants={{
+                      hidden: { y: '105%' },
+                      visible: (n: number) => ({
+                        y: 0,
+                        transition: { duration: 0.9, ease: EASE, delay: n * 0.035 },
+                      }),
+                    }}
+                  >
+                    {letter}
+                  </m.span>
+                );
+              })}
+            </span>
+            {wi < words.length - 1 && ' '}
+          </Fragment>
+        ))}
+      </Tag>
+    </m.div>
+  );
+}
+
+export function Magnetic({
+  children,
+  className,
+  strength = 0.3,
+}: {
+  children: ReactNode;
+  className?: string;
+  strength?: number;
+}) {
+  const ref = useRef<HTMLDivElement>(null);
+  const reduced = useReducedMotion();
+  const x = useSpring(useMotionValue(0), { stiffness: 220, damping: 18, mass: 0.4 });
+  const y = useSpring(useMotionValue(0), { stiffness: 220, damping: 18, mass: 0.4 });
+
+  function onMove(e: React.PointerEvent) {
+    if (reduced || e.pointerType !== 'mouse' || !ref.current) return;
+    const r = ref.current.getBoundingClientRect();
+    x.set((e.clientX - (r.left + r.width / 2)) * strength);
+    y.set((e.clientY - (r.top + r.height / 2)) * strength);
+  }
+
+  function onLeave() {
+    x.set(0);
+    y.set(0);
+  }
+
   return (
     <m.div
-      initial="hidden"
-      whileInView="visible"
-      viewport={{ once: true, amount: 'some', margin: '0px 0px 18% 0px' }}
+      ref={ref}
+      style={{ x, y }}
+      onPointerMove={onMove}
+      onPointerLeave={onLeave}
+      className={cn('inline-block', className)}
     >
-      <Tag
-        className={cn('display overflow-hidden pb-[0.06em] text-[17vw] md:text-[12vw]', className)}
-      >
-        <m.span
-          className="block"
-          variants={{ hidden: { y: '105%' }, visible: { y: 0 } }}
-          transition={{ duration: 1, ease: EASE }}
-        >
-          {children}
-        </m.span>
-      </Tag>
+      {children}
     </m.div>
   );
 }

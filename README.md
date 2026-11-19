@@ -28,6 +28,7 @@ Portfolio personal bilingüe (es/en), mobile-first, con tipografía de gran form
 
 - **i18n** — Español/Inglés con la preferencia guardada en cookie
 - **Tema claro/oscuro** — Sin parpadeo: la elección guardada se resuelve en el servidor y, sin elección, se usa la preferencia del sistema
+- **Animaciones** — Títulos letra por letra, parallax en las portadas de proyectos, luz que sigue al cursor, botones magnéticos y una cinta de tecnologías que acelera con el scroll
 - **Responsive** — Diseñado primero para móvil
 - **Accesibilidad** — Contraste AA, foco visible, `prefers-reduced-motion`
 - **SEO** — Open Graph, sitemap, robots.txt y JSON-LD

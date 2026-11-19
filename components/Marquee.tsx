@@ -1,4 +1,7 @@
-import type { ComponentType } from 'react';
+'use client';
+
+import { useRef, type ComponentType } from 'react';
+import { useMotionValueEvent, useScroll, useSpring, useVelocity } from 'framer-motion';
 import { Coffee, RefreshCcw, Webhook, Workflow } from 'lucide-react';
 import {
   siApachemaven,
@@ -82,6 +85,14 @@ function Logo({ glyph }: { glyph: Glyph }) {
 
 export default function Marquee({ row = 0, reverse = false }: { row?: 0 | 1; reverse?: boolean }) {
   const items = ROWS[row];
+  const track = useRef<HTMLDivElement>(null);
+  const velocity = useSpring(useVelocity(useScroll().scrollY), { stiffness: 90, damping: 30 });
+
+  useMotionValueEvent(velocity, 'change', (v) => {
+    const animation = track.current?.getAnimations()[0];
+    if (animation) animation.playbackRate = 1 + Math.min(Math.abs(v) / 450, 7);
+  });
+
   const strip = (
     <ul className="flex shrink-0 items-center gap-10 pr-10 md:gap-16 md:pr-16" aria-hidden="true">
       {items.map((it) => (
@@ -95,7 +106,7 @@ export default function Marquee({ row = 0, reverse = false }: { row?: 0 | 1; rev
 
   return (
     <div className="hairline overflow-hidden border-y py-6 md:py-9" role="presentation">
-      <div className={`marquee flex w-max ${reverse ? 'marquee-reverse' : ''}`}>
+      <div ref={track} className={`marquee flex w-max ${reverse ? 'marquee-reverse' : ''}`}>
         {strip}
         {strip}
       </div>

@@ -3,13 +3,20 @@
 import { ArrowDown } from 'lucide-react';
 import { useLanguage } from '@/i18n';
 import HeroScene from './HeroScene';
+import { Magnetic } from './ui';
 
-function Line({ children, delay }: { children: string; delay: string }) {
+function Line({ children, start }: { children: string; start: number }) {
   return (
-    <span className="block overflow-hidden pb-[0.06em]">
-      <span className="line-rise" style={{ '--d': delay } as React.CSSProperties}>
-        {children}
-      </span>
+    <span aria-hidden="true" className="block overflow-hidden pb-[0.06em]">
+      {Array.from(children).map((letter, i) => (
+        <span
+          key={i}
+          className="letter-rise"
+          style={{ '--d': `${(start + i * 0.045).toFixed(3)}s` } as React.CSSProperties}
+        >
+          {letter}
+        </span>
+      ))}
     </span>
   );
 }
@@ -36,9 +43,12 @@ export default function Hero() {
           {t.hero.location}
         </p>
 
-        <h1 className="display text-[26vw] sm:text-[22vw] lg:text-[19vw]">
-          <Line delay="0.05s">{first}</Line>
-          <Line delay="0.18s">{rest.join(' ')}</Line>
+        <h1
+          aria-label="Richard Malca"
+          className="display text-[26vw] sm:text-[22vw] lg:text-[19vw]"
+        >
+          <Line start={0.05}>{first}</Line>
+          <Line start={0.4}>{rest.join(' ')}</Line>
         </h1>
 
         <div className="hairline mt-8 flex flex-col gap-6 border-t pt-5 sm:flex-row sm:items-end sm:justify-between">
@@ -47,19 +57,23 @@ export default function Hero() {
           </p>
 
           <div className="fade-up flex items-center gap-3" style={d('0.9s')}>
-            <a
-              href="#projects"
-              className="bg-chalk text-ink inline-flex min-h-12 items-center gap-2 rounded-full px-6 text-sm font-semibold transition-transform duration-150 ease-[var(--ease-out-expo)] hover:opacity-85 active:scale-[0.97]"
-            >
-              {t.hero.ctaProjects}
-              <ArrowDown size={16} aria-hidden="true" />
-            </a>
-            <a
-              href="#contact"
-              className="hairline hover:bg-chalk/10 inline-flex min-h-12 items-center rounded-full border px-6 text-sm font-semibold transition-[transform,background-color] duration-150 ease-[var(--ease-out-expo)] active:scale-[0.97]"
-            >
-              {t.hero.ctaContact}
-            </a>
+            <Magnetic>
+              <a
+                href="#projects"
+                className="bg-chalk text-ink inline-flex min-h-12 items-center gap-2 rounded-full px-6 text-sm font-semibold transition-transform duration-150 ease-[var(--ease-out-expo)] hover:opacity-85 active:scale-[0.97]"
+              >
+                {t.hero.ctaProjects}
+                <ArrowDown size={16} aria-hidden="true" />
+              </a>
+            </Magnetic>
+            <Magnetic>
+              <a
+                href="#contact"
+                className="hairline hover:bg-chalk/10 inline-flex min-h-12 items-center rounded-full border px-6 text-sm font-semibold transition-[transform,background-color] duration-150 ease-[var(--ease-out-expo)] active:scale-[0.97]"
+              >
+                {t.hero.ctaContact}
+              </a>
+            </Magnetic>
           </div>
         </div>
       </div>
