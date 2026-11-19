@@ -71,22 +71,15 @@ export const metadata: Metadata = {
       'Bach. Ingeniería de Sistemas - UNC. Desarrollo web y móvil con React, Next.js, Laravel y Flutter. Conoce mis proyectos y contáctame.',
     url: baseUrl,
     countryName: 'Peru',
-    images: [
-      {
-        url: `${baseUrl}/icon`,
-        width: 32,
-        height: 32,
-        alt: 'Richard Malca',
-      },
-    ],
   },
   twitter: {
-    card: 'summary',
+    card: 'summary_large_image',
     title: 'Richard Malca | Desarrollador Web Cajamarca',
     description:
       'Bach. Ingeniería de Sistemas - UNC. Desarrollo web y móvil con React, Next.js, Laravel y Flutter.',
-    images: [`${baseUrl}/icon`],
   },
+  alternates: { canonical: '/' },
+  applicationName: 'Richard Malca',
   robots: {
     index: true,
     follow: true,
@@ -110,7 +103,9 @@ const jsonLd = {
       name: 'Richard Malca',
       givenName: 'Richard',
       familyName: 'Malca Chuquimango',
-      jobTitle: 'Bach. Ingeniería de Sistemas - Desarrollador Web y Móvil',
+      jobTitle: 'Full Stack Developer',
+      image: `${baseUrl}/icon-512.png`,
+      sameAs: ['https://github.com/richardmalca', 'https://linkedin.com/in/richardmalca'],
       description:
         'Bachiller en Ingeniería de Sistemas de la Universidad Nacional de Cajamarca. Especializado en desarrollo web con React, Next.js, Laravel y desarrollo móvil con Flutter y React Native.',
       email: 'malcarichard6@gmail.com',
@@ -148,14 +143,6 @@ const jsonLd = {
       publisher: { '@id': `${baseUrl}/#person` },
       inLanguage: ['es', 'en'],
     },
-    {
-      '@type': 'WebApplication',
-      name: 'Richard Malca Portfolio',
-      url: baseUrl,
-      applicationCategory: 'Portfolio',
-      operatingSystem: 'All',
-      author: { '@id': `${baseUrl}/#person` },
-    },
   ],
 };
 
@@ -173,10 +160,6 @@ export default async function RootLayout({ children }: { children: React.ReactNo
       suppressHydrationWarning
     >
       <head>
-        <link rel="canonical" href={baseUrl} />
-        <link rel="alternate" hrefLang="es" href={baseUrl} />
-        <link rel="alternate" hrefLang="en" href={baseUrl} />
-        <link rel="alternate" hrefLang="x-default" href={baseUrl} />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
