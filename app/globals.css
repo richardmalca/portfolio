@@ -486,3 +486,22 @@ input:-webkit-autofill {
     animation: none;
   }
 }
+
+/* Pantallas grandes: todo lo que usa rem (texto, espacios) crece para llenar el ancho. */
+@media (min-width: 1800px) {
+  html {
+    font-size: 125%;
+  }
+  /* Con el texto más grande, los márgenes entre secciones se acortan para no dejar huecos. */
+  #about,
+  #projects,
+  #education,
+  #certifications {
+    padding-block: 6.5rem;
+  }
+}
+@media (min-width: 2400px) {
+  html {
+    font-size: 156%;
+  }
+}

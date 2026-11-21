@@ -22,8 +22,9 @@ export default function PhoneWalkthrough({ shots, alts }: Props) {
         <button
           type="button"
           onClick={next}
+          style={{ aspectRatio: `${shots[0].width} / ${shots[0].height}` }}
           aria-label={lang === 'es' ? 'Siguiente pantalla' : 'Next screen'}
-          className="ring-chalk/25 bg-ground focus-visible:ring-flare relative mx-auto block aspect-[720/1440] w-full max-w-[19rem] cursor-pointer overflow-hidden rounded-[2.2rem] shadow-2xl ring-1 transition-transform duration-200 ease-[var(--ease-out-expo)] focus-visible:ring-4 focus-visible:outline-none active:scale-[0.98] motion-reduce:transition-none"
+          className="ring-chalk/25 bg-ground focus-visible:ring-flare relative mx-auto block w-full max-w-[19rem] cursor-pointer overflow-hidden rounded-[2.2rem] shadow-2xl ring-1 transition-transform duration-200 ease-[var(--ease-out-expo)] focus-visible:ring-4 focus-visible:outline-none active:scale-[0.98] motion-reduce:transition-none"
         >
           {shots.map((shot, i) => (
             <span

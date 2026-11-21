@@ -16,6 +16,8 @@ interface Tile {
   size: string;
   title: string;
   compact?: boolean;
+  /** En pantallas anchas la tarjeta se parte en dos columnas: texto y capturas. */
+  row?: boolean;
 }
 
 const ARTS: Record<string, ComponentType> = {
@@ -29,8 +31,9 @@ const ARTS: Record<string, ComponentType> = {
 const TILES: Tile[] = [
   {
     place: 'md:col-span-12',
-    size: 'min-h-[34rem] md:min-h-[42rem]',
-    title: 'text-[17vw] md:text-[9vw]',
+    size: 'min-h-[34rem] md:min-h-[38rem]',
+    title: 'text-[17vw] md:text-[6.4vw]',
+    row: true,
   },
   {
     place: 'md:col-start-7 md:col-span-6 md:row-start-2',
@@ -83,9 +86,9 @@ function ProjectTile({ project, tile, view }: { project: ProjectItem; tile: Tile
         href={`/projects/${project.slug}`}
         aria-label={`${view}: ${project.title}`}
         onPointerMove={onPointerMove}
-        className={`group bg-ground-deep ring-chalk/15 focus-visible:ring-flare relative flex h-full w-full flex-col overflow-hidden ring-1 ring-inset focus-visible:ring-4 focus-visible:outline-none ${tile.size}`}
+        className={`group bg-ground-deep ring-chalk/15 focus-visible:ring-flare relative flex h-full w-full flex-col overflow-hidden ring-1 ring-inset focus-visible:ring-4 focus-visible:outline-none ${tile.row ? 'md:flex-row-reverse' : ''} ${tile.size}`}
       >
-        <div className="relative min-h-44 flex-1 overflow-hidden">
+        <div className={`relative min-h-44 flex-1 overflow-hidden ${tile.row ? 'md:min-h-0' : ''}`}>
           <m.div style={{ y: artY }} className="absolute -inset-[8%]">
             <div className="relative h-full w-full transition-transform duration-700 ease-[var(--ease-out-expo)] group-hover:scale-[1.05]">
               {meta.cover?.kind === 'photo' ? (
@@ -116,7 +119,7 @@ function ProjectTile({ project, tile, view }: { project: ProjectItem; tile: Tile
                   {meta.cover.srcs.map((src, i) => (
                     <div
                       key={src}
-                      className={`ring-chalk/25 bg-ground relative aspect-[720/1192] w-[28%] overflow-hidden rounded-[1.4rem] shadow-2xl ring-1 ${
+                      className={`ring-chalk/25 bg-ground relative aspect-[720/1192] ${tile.row ? 'w-[29%]' : 'w-[28%] max-w-[17rem]'} overflow-hidden rounded-[1.4rem] shadow-2xl ring-1 ${
                         i === 1 ? 'translate-y-[8%]' : '-translate-y-[2%]'
                       }`}
                     >
@@ -146,7 +149,9 @@ function ProjectTile({ project, tile, view }: { project: ProjectItem; tile: Tile
           </span>
         </div>
 
-        <div className="bg-ground-deep relative flex flex-col gap-4 p-5 pb-8 md:p-10">
+        <div
+          className={`bg-ground-deep relative flex flex-col gap-4 p-5 pb-8 md:p-10 ${tile.row ? 'md:flex-1 md:justify-end' : ''}`}
+        >
           <h3 className={`display ${tile.title}`}>{project.title}</h3>
           <p
             className={`text-chalk max-w-[44ch] leading-relaxed ${

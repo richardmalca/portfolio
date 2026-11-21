@@ -43,7 +43,19 @@ const MUNI_PHONE = { kind: 'phone', width: 720, height: 1558 } as const;
 const PHONE_APP = { kind: 'phone', width: 720, height: 1192 } as const;
 
 export const PROJECTS: Record<ProjectSlug, ProjectMeta> = {
-  ecotrack: { slug: 'ecotrack', art: 'eco', gallery: [] },
+  ecotrack: {
+    slug: 'ecotrack',
+    art: 'eco',
+    cover: { kind: 'phones', srcs: ['ecotrack-entrega', 'ecotrack-saldo', 'ecotrack-comprobante'] },
+    walkthrough: true,
+    gallery: [
+      { src: 'ecotrack-entrega', kind: 'phone', width: 720, height: 1210 },
+      { src: 'ecotrack-revision', kind: 'phone', width: 720, height: 1210 },
+      { src: 'ecotrack-saldo', kind: 'phone', width: 720, height: 1210 },
+      { src: 'ecotrack-qr', kind: 'phone', width: 720, height: 1210 },
+      { src: 'ecotrack-comprobante', kind: 'phone', width: 720, height: 1210 },
+    ],
+  },
   municipalidad: {
     slug: 'municipalidad',
     art: 'city',
