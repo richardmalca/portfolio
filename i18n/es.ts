@@ -53,7 +53,7 @@ export const es = {
           'Piloto Android de reciclaje para Cajamarca: QR de entrega, recolector, puntos y premios. Presentado en el Hackathon InnovaTec 2024.',
         highlight: '1er Puesto',
         tags: ['Kotlin', 'Jetpack Compose', 'TensorFlow Lite', 'Supabase'],
-        repoSoon: true,
+        github: 'https://github.com/richardmalca/Ecotrack',
         overview: [
           'EcoTrack se presentó en el Hackathon InnovaTec 2024, donde obtuvo el 1er puesto. El repositorio reúne su piloto para Android: un piloto de reciclaje para Cajamarca.',
           'En un mismo teléfono se pueden probar los roles de vecino y recolector, validar una entrega y canjear los puntos por un premio de ejemplo. El modo piloto guarda el saldo, las entregas y los comprobantes en el teléfono; el catálogo y los canjes son simulados, y el flujo funciona sin cuenta ni servidor.',
@@ -67,6 +67,11 @@ export const es = {
           'Android nativo con Kotlin y Jetpack Compose; Supabase para el modo con cuenta.',
         ],
         shots: [
+          'Mapa de puntos de acopio de Cajamarca',
+          'Filtro por material: Vidrio',
+          'Filtro por material: Plástico',
+          'Un punto de acopio: materiales que acepta, tiempo y distancia a pie',
+          'Ruta a pie hasta el punto de acopio',
           'Tu QR de entrega, pendiente de validar',
           'Revisión de la entrega por el recolector',
           'Saldo acreditado y catálogo de premios',

@@ -46,9 +46,14 @@ export const PROJECTS: Record<ProjectSlug, ProjectMeta> = {
   ecotrack: {
     slug: 'ecotrack',
     art: 'eco',
-    cover: { kind: 'phones', srcs: ['ecotrack-entrega', 'ecotrack-saldo', 'ecotrack-comprobante'] },
+    cover: { kind: 'phones', srcs: ['ecotrack-mapa', 'ecotrack-entrega', 'ecotrack-saldo'] },
     walkthrough: true,
     gallery: [
+      { src: 'ecotrack-mapa', kind: 'phone', width: 720, height: 1210 },
+      { src: 'ecotrack-vidrio', kind: 'phone', width: 720, height: 1210 },
+      { src: 'ecotrack-plastico', kind: 'phone', width: 720, height: 1210 },
+      { src: 'ecotrack-punto', kind: 'phone', width: 720, height: 1210 },
+      { src: 'ecotrack-ruta', kind: 'phone', width: 720, height: 1210 },
       { src: 'ecotrack-entrega', kind: 'phone', width: 720, height: 1210 },
       { src: 'ecotrack-revision', kind: 'phone', width: 720, height: 1210 },
       { src: 'ecotrack-saldo', kind: 'phone', width: 720, height: 1210 },
