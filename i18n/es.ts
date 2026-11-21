@@ -105,12 +105,27 @@ export const es = {
         slug: 'cajamapp',
         title: 'CajamApp',
         description:
-          'App móvil para explorar destinos turísticos en Cajamarca (proyecto académico).',
-        tags: ['Kotlin', 'SQLite'],
-        repoSoon: true,
-        overview: ['App móvil para explorar destinos turísticos en Cajamarca. Proyecto académico.'],
-        features: [],
-        shots: [],
+          'Guía turística de Cajamarca para Android: 18 destinos con fotos, horarios, pasajes y cómo llegar.',
+        highlight: 'Android',
+        tags: ['Kotlin', 'Jetpack Compose', 'Room', 'OpenStreetMap'],
+        github: 'https://github.com/richardmalca/CajamApp',
+        overview: [
+          'CajamApp reúne 18 destinos de Cajamarca para descubrir qué visitar, cuánto cuesta llegar y cómo organizar el recorrido. Las fichas incluyen fotografías, horarios, tarifas de referencia, transporte y recomendaciones locales. Es un proyecto académico.',
+          'El catálogo y las fotos incluidas funcionan sin conexión. Las fotos en línea, el mapa base y el cálculo de rutas requieren internet. Los montos y tiempos son orientativos.',
+        ],
+        features: [
+          'Explorar con búsqueda por nombre o provincia, filtros por categoría y un carrusel de lugares destacados.',
+          'Fichas de viaje con galería y créditos de cada foto, pasaje y tiempo de viaje, horarios, tarifas de ingreso y consejos.',
+          'Cómo llegar: dibuja una ruta en auto desde la Plaza de Armas, con seguimiento GPS opcional para recalcular.',
+          'Favoritos guardados en el teléfono.',
+          'Mapa con OpenStreetMap, Leaflet y rutas de OSRM.',
+          'Android nativo con Kotlin, Jetpack Compose y Room.',
+        ],
+        shots: [
+          'Explorar: carrusel de destinos y lista de lugares para visitar',
+          'Ficha de Baños del Inca con fotos, pasaje y tiempo de viaje',
+          'Mapa de Cajamarca con los destinos marcados',
+        ],
       },
       {
         slug: 'medileny',

@@ -101,12 +101,28 @@ export const en = {
       {
         slug: 'cajamapp',
         title: 'CajamApp',
-        description: 'Mobile app to explore tourist destinations in Cajamarca (academic project).',
-        tags: ['Kotlin', 'SQLite'],
-        repoSoon: true,
-        overview: ['Mobile app to explore tourist destinations in Cajamarca. Academic project.'],
-        features: [],
-        shots: [],
+        description:
+          'Tourist guide to Cajamarca for Android: 18 destinations with photos, opening hours, fares and directions.',
+        highlight: 'Android',
+        tags: ['Kotlin', 'Jetpack Compose', 'Room', 'OpenStreetMap'],
+        github: 'https://github.com/richardmalca/CajamApp',
+        overview: [
+          'CajamApp gathers 18 destinations in Cajamarca so visitors can find what to see, what the trip costs and how to plan the route. Each page has photos, opening hours, reference fares, transport and local tips. It is an academic project.',
+          'The catalogue and bundled photos work offline. Online photos, the base map and route calculation need internet. Prices and times are approximate.',
+        ],
+        features: [
+          'Explore with search by name or province, category filters and a carousel of featured places.',
+          'Trip pages with a photo gallery and credits for each photo, fare and travel time, opening hours, entrance fees and tips.',
+          'Directions: draws a driving route from the Plaza de Armas, with optional GPS tracking to recalculate.',
+          'Favorites saved on the phone.',
+          'Map built on OpenStreetMap, Leaflet and OSRM routing.',
+          'Native Android with Kotlin, Jetpack Compose and Room.',
+        ],
+        shots: [
+          'Explore: destination carousel and list of places to visit',
+          'Baños del Inca page with photos, fare and travel time',
+          'Map of Cajamarca with the destinations marked',
+        ],
       },
       {
         slug: 'medileny',

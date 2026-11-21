@@ -33,6 +33,7 @@ export interface ProjectMeta {
 
 const DESKTOP = { kind: 'desktop', width: 1800, height: 1125 } as const;
 const PHONE_WEB = { kind: 'phone', width: 1000, height: 2164 } as const;
+const CAJAMAPP = { kind: 'phone', width: 720, height: 1440 } as const;
 const PHONE_APP = { kind: 'phone', width: 720, height: 1192 } as const;
 
 export const PROJECTS: Record<ProjectSlug, ProjectMeta> = {
@@ -50,7 +51,16 @@ export const PROJECTS: Record<ProjectSlug, ProjectMeta> = {
       { src: 'rentamaq-cuenta', ...PHONE_APP },
     ],
   },
-  cajamapp: { slug: 'cajamapp', art: 'map', gallery: [] },
+  cajamapp: {
+    slug: 'cajamapp',
+    art: 'map',
+    cover: { kind: 'phones', srcs: ['cajamapp-explorar', 'cajamapp-ficha', 'cajamapp-mapa'] },
+    gallery: [
+      { src: 'cajamapp-explorar', ...CAJAMAPP },
+      { src: 'cajamapp-ficha', ...CAJAMAPP },
+      { src: 'cajamapp-mapa', ...CAJAMAPP },
+    ],
+  },
   medileny: {
     slug: 'medileny',
     art: 'food',
