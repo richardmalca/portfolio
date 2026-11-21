@@ -33,38 +33,39 @@ export const en = {
   },
   projects: {
     title: 'Featured Projects',
+    cta: 'View on GitHub',
     items: [
       {
-        title: 'EcoTrack App',
-        description: 'Smart recycling web/mobile system. Presented at InnovaTec 2024 Hackathon.',
-        highlight: '1st Place',
-        tags: ['React', 'Laravel', 'MySQL', 'Flutter'],
-        github: 'https://github.com/richardmalca/ecotrack',
-      },
-      {
-        title: 'Municipality Website',
-        description: 'Informational website for a municipality with news and content management.',
-        tags: ['React', 'Next.js', 'PostgreSQL'],
-        github: 'https://github.com/richardmalca/municipio',
-      },
-      {
-        title: 'Rentamaq App',
-        description:
-          'Mobile app for heavy machinery rental. Presented at Cajamarca 2024 Hackathon.',
-        tags: ['React Native', 'Express.js', 'MySQL'],
-        github: 'https://github.com/richardmalca/rentamaq',
-      },
-      {
-        title: 'CajamApp',
-        description: 'Mobile app to explore tourist destinations in Cajamarca (Academic project).',
-        tags: ['Kotlin', 'SQLite'],
-        github: 'https://github.com/richardmalca/cajamapp',
-      },
-      {
+        slug: 'medileny',
         title: 'Pollería Medileny',
-        description: 'Web platform to manage orders and display the menu (Academic project).',
-        tags: ['Laravel', 'JavaScript', 'MySQL'],
-        github: 'https://github.com/richardmalca/medileny',
+        description:
+          'POS and ERP system for a three-branch chicken restaurant: real-time floor plan, kitchen by stages, split payments at the register, roles and reports. Designed for mobile and desktop.',
+        highlight: 'POS + ERP',
+        tags: ['Laravel', 'React', 'Inertia', 'Tailwind', 'Reverb'],
+        github: 'https://github.com/richardmalca/medileny-pos',
+        shots: [
+          'Floor with an open account and the menu to add orders',
+          'Kitchen with orders by stage',
+          'Daily register with totals by payment method',
+          'Cash payment with change',
+          'Floor on a phone',
+          'Home on a phone',
+        ],
+      },
+      {
+        slug: 'rentamaq',
+        title: 'Rentamaq',
+        description:
+          'Native Android app to browse, list and book heavy machinery in Cajamarca: photos, calendar and maintenance, bookings, payments and refunds. Presented at the Cajamarca 2024 Hackathon.',
+        highlight: 'Android',
+        tags: ['Kotlin', 'Jetpack Compose', 'Room', 'MVVM'],
+        github: 'https://github.com/richardmalca/rentamaq',
+        shots: [
+          'Home screen with featured machinery',
+          'Recent listings',
+          'Excavator listing with prices and maintenance',
+          'My account',
+        ],
       },
     ],
   },

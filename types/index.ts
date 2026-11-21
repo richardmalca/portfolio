@@ -13,10 +13,13 @@ export interface NavItem {
 }
 
 export interface ProjectItem {
+  slug: 'medileny' | 'rentamaq';
   title: string;
   description: string;
   highlight?: string;
   tags: string[];
   github?: string;
   demo?: string;
+  /** Textos alternativos de las capturas, en el mismo orden que en el componente. */
+  shots: string[];
 }

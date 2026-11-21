@@ -33,42 +33,39 @@ export const es = {
   },
   projects: {
     title: 'Proyectos Destacados',
+    cta: 'Ver en GitHub',
     items: [
       {
-        title: 'EcoTrack App',
-        description:
-          'Sistema web/móvil para reciclaje inteligente. Presentado en Hackathon InnovaTec 2024.',
-        highlight: '1er Puesto',
-        tags: ['React', 'Laravel', 'MySQL', 'Flutter'],
-        github: 'https://github.com/richardmalca/ecotrack',
-      },
-      {
-        title: 'Web Municipalidad',
-        description:
-          'Sitio web informativo para municipalidad con noticias y gestión de contenido.',
-        tags: ['React', 'Next.js', 'PostgreSQL'],
-        github: 'https://github.com/richardmalca/municipio',
-      },
-      {
-        title: 'Rentamaq App',
-        description:
-          'App móvil para alquiler de maquinaria pesada. Presentada en Hackathon Cajamarca 2024.',
-        tags: ['React Native', 'Express.js', 'MySQL'],
-        github: 'https://github.com/richardmalca/rentamaq',
-      },
-      {
-        title: 'CajamApp',
-        description:
-          'App móvil para explorar destinos turísticos en Cajamarca (Proyecto académico).',
-        tags: ['Kotlin', 'SQLite'],
-        github: 'https://github.com/richardmalca/cajamapp',
-      },
-      {
+        slug: 'medileny',
         title: 'Pollería Medileny',
         description:
-          'Plataforma web para gestionar pedidos y mostrar el menú (Proyecto académico).',
-        tags: ['Laravel', 'JavaScript', 'MySQL'],
-        github: 'https://github.com/richardmalca/medileny',
+          'Sistema POS y ERP para una pollería con tres sucursales: salón con mesas en tiempo real, cocina por etapas, caja con pagos repartidos, roles y reportes. Diseñado para móvil y PC.',
+        highlight: 'POS + ERP',
+        tags: ['Laravel', 'React', 'Inertia', 'Tailwind', 'Reverb'],
+        github: 'https://github.com/richardmalca/medileny-pos',
+        shots: [
+          'Salón con una cuenta abierta y la carta para agregar pedidos',
+          'Cocina con los pedidos por etapa',
+          'Caja del día con totales por medio de pago',
+          'Cobro en efectivo con vuelto',
+          'Mesas en el celular',
+          'Inicio en el celular',
+        ],
+      },
+      {
+        slug: 'rentamaq',
+        title: 'Rentamaq',
+        description:
+          'App Android nativa para explorar, ofrecer y reservar maquinaria pesada en Cajamarca: fotos, calendario y mantenimiento, reservas, pagos y reembolsos. Presentada en el Hackathon Cajamarca 2024.',
+        highlight: 'Android',
+        tags: ['Kotlin', 'Jetpack Compose', 'Room', 'MVVM'],
+        github: 'https://github.com/richardmalca/rentamaq',
+        shots: [
+          'Pantalla de inicio con maquinaria destacada',
+          'Publicaciones recientes',
+          'Ficha de una excavadora con precios y mantenimiento',
+          'Mi cuenta',
+        ],
       },
     ],
   },

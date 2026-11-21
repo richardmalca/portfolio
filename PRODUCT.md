@@ -25,7 +25,7 @@ Desarrollador full-stack web y móvil de Cajamarca con proyectos reales presenta
 Binding (pedido del usuario): minimalista pero 3D, tipografía gigante, mobile-first, responsive. Marca "RM." existente.
 
 ## Evidence on Hand
-Cinco proyectos con repositorios, una carrera, dos certificaciones, logo UNC (`public/unc-logo.webp`). No hay capturas de proyectos ni testimonios: no inventarlos.
+Dos proyectos publicados en GitHub con capturas reales (`public/projects`: Pollería Medileny y Rentamaq), una carrera, dos certificaciones, logo UNC (`public/unc-logo.webp`). No hay testimonios: no inventarlos. Los demás proyectos se agregan cuando sus repositorios sean públicos.
 
 ## Product Principles
 - Mobile primero; el contenido siempre visible aunque falle el 3D.

@@ -435,3 +435,29 @@ input:-webkit-autofill {
     opacity: 1;
   }
 }
+
+/* Capturas de proyectos: oscuras por defecto, claras con el tema claro. */
+.shot-light {
+  display: none;
+}
+@media (prefers-color-scheme: light) {
+  :root:not([data-theme]) .shot-dark {
+    display: none;
+  }
+  :root:not([data-theme]) .shot-light {
+    display: block;
+  }
+}
+:root[data-theme='light'] .shot-dark {
+  display: none;
+}
+:root[data-theme='light'] .shot-light {
+  display: block;
+}
+:root[data-theme='dark'] .shot-dark {
+  display: block;
+}
+:root[data-theme='dark'] .shot-light {
+  display: none;
+}
+
