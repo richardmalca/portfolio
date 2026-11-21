@@ -66,6 +66,17 @@ export default function ProjectPage({ slug }: { slug: ProjectSlug }) {
                 <ArrowUpRight aria-hidden="true" size={20} strokeWidth={2.4} />
               </a>
             )}
+            {project.demo && (
+              <a
+                href={project.demo}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="border-chalk/40 text-chalk hover:border-flare focus-visible:ring-flare inline-flex items-center gap-2 rounded-full border px-6 py-3 text-base font-semibold transition-colors duration-300 focus-visible:ring-4 focus-visible:outline-none"
+              >
+                {t.projects.demo}
+                <ArrowUpRight aria-hidden="true" size={20} strokeWidth={2.4} />
+              </a>
+            )}
             {!project.github && project.repoSoon && (
               <p className="border-chalk/25 text-chalk-soft rounded-full border px-5 py-3 text-base font-medium">
                 {t.projects.repoSoon}

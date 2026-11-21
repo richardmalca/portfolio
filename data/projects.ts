@@ -36,11 +36,35 @@ export interface ProjectMeta {
 const DESKTOP = { kind: 'desktop', width: 1800, height: 1125 } as const;
 const PHONE_WEB = { kind: 'phone', width: 1000, height: 2164 } as const;
 const CAJAMAPP = { kind: 'phone', width: 720, height: 1440 } as const;
+const MUNI_PHONE = { kind: 'phone', width: 720, height: 1558 } as const;
 const PHONE_APP = { kind: 'phone', width: 720, height: 1192 } as const;
 
 export const PROJECTS: Record<ProjectSlug, ProjectMeta> = {
   ecotrack: { slug: 'ecotrack', art: 'eco', gallery: [] },
-  municipalidad: { slug: 'municipalidad', art: 'city', gallery: [] },
+  municipalidad: {
+    slug: 'municipalidad',
+    art: 'city',
+    cover: { kind: 'photo', src: 'municipalidad-portal', position: 'object-left-top' },
+    gallery: [
+      { src: 'municipalidad-portal', ...DESKTOP },
+      { src: 'municipalidad-noticia', ...DESKTOP },
+      { src: 'municipalidad-tramites', ...DESKTOP },
+      { src: 'municipalidad-tramite', ...DESKTOP },
+      { src: 'municipalidad-transparencia', ...DESKTOP },
+      { src: 'municipalidad-organigrama', ...DESKTOP },
+      { src: 'municipalidad-busqueda', ...DESKTOP },
+      { src: 'municipalidad-galeria', ...DESKTOP },
+      { src: 'municipalidad-agenda', ...DESKTOP },
+      { src: 'municipalidad-admin', ...DESKTOP },
+      { src: 'municipalidad-contenido', ...DESKTOP },
+      { src: 'municipalidad-nuevo', ...DESKTOP },
+      { src: 'municipalidad-institucional', ...DESKTOP },
+      { src: 'municipalidad-movil', ...MUNI_PHONE },
+      { src: 'municipalidad-movil-menu', ...MUNI_PHONE },
+      { src: 'municipalidad-movil-tramite', ...MUNI_PHONE },
+      { src: 'municipalidad-movil-busqueda', ...MUNI_PHONE },
+    ],
+  },
   rentamaq: {
     slug: 'rentamaq',
     art: 'rent',

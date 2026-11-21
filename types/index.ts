@@ -22,6 +22,8 @@ export interface ProjectItem {
   /** Repositorio público; si falta y `repoSoon` es true se avisa que viene pronto. */
   github?: string;
   repoSoon?: boolean;
+  /** Sitio publicado en vivo. */
+  demo?: string;
   /** Descripción completa de la página del proyecto. */
   overview: string[];
   features: string[];
