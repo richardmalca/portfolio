@@ -119,9 +119,13 @@ export const en = {
           'Native Android with Kotlin, Jetpack Compose and Room.',
         ],
         shots: [
-          'Explore: destination carousel and list of places to visit',
+          'Explore: destination carousel and list of places',
+          'Filter by category: Archaeology, 4 results',
           'Baños del Inca page with photos, fare and travel time',
+          'Opening hours, fees, local transport and tips',
+          'Directions: driving route from the Plaza de Armas',
           'Map of Cajamarca with the destinations marked',
+          'Favorites saved on the phone',
         ],
       },
       {

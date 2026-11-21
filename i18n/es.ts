@@ -122,9 +122,13 @@ export const es = {
           'Android nativo con Kotlin, Jetpack Compose y Room.',
         ],
         shots: [
-          'Explorar: carrusel de destinos y lista de lugares para visitar',
-          'Ficha de Baños del Inca con fotos, pasaje y tiempo de viaje',
+          'Explorar: carrusel de destinos y lista de lugares',
+          'Filtrar por categoría: Arqueología, 4 resultados',
+          'Ficha de Baños del Inca con fotos, pasaje y tiempo',
+          'Horario, tarifas, transporte local y recomendaciones',
+          'Cómo llegar: ruta en auto desde la Plaza de Armas',
           'Mapa de Cajamarca con los destinos marcados',
+          'Favoritos guardados en el teléfono',
         ],
       },
       {

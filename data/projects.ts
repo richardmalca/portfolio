@@ -29,6 +29,8 @@ export interface ProjectMeta {
     | { kind: 'phones'; srcs: string[] };
   /** Capturas reales; el texto alternativo de cada una está en `i18n` (`shots`). */
   gallery: GalleryShot[];
+  /** Muestra la galería como recorrido interactivo de una app móvil. */
+  walkthrough?: boolean;
 }
 
 const DESKTOP = { kind: 'desktop', width: 1800, height: 1125 } as const;
@@ -55,10 +57,15 @@ export const PROJECTS: Record<ProjectSlug, ProjectMeta> = {
     slug: 'cajamapp',
     art: 'map',
     cover: { kind: 'phones', srcs: ['cajamapp-explorar', 'cajamapp-ficha', 'cajamapp-mapa'] },
+    walkthrough: true,
     gallery: [
       { src: 'cajamapp-explorar', ...CAJAMAPP },
+      { src: 'cajamapp-filtro', ...CAJAMAPP },
       { src: 'cajamapp-ficha', ...CAJAMAPP },
+      { src: 'cajamapp-detalle', ...CAJAMAPP },
+      { src: 'cajamapp-ruta', ...CAJAMAPP },
       { src: 'cajamapp-mapa', ...CAJAMAPP },
+      { src: 'cajamapp-favoritos', ...CAJAMAPP },
     ],
   },
   medileny: {

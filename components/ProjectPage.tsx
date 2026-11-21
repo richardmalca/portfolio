@@ -10,6 +10,7 @@ import Footer from './Footer';
 import ScrollProgress from './ScrollProgress';
 import WhatsAppButton from './WhatsAppButton';
 import Gallery from './Gallery';
+import PhoneWalkthrough from './PhoneWalkthrough';
 import { ArtCity, ArtEco, ArtFood, ArtMap, ArtRent } from './ProjectArt';
 import { BigTitle, Reveal } from './ui';
 
@@ -139,7 +140,11 @@ export default function ProjectPage({ slug }: { slug: ProjectSlug }) {
             <h2 id="gallery" className="display mb-8 text-[11vw] md:mb-12 md:text-[5vw]">
               {t.projects.gallery}
             </h2>
-            <Gallery shots={meta.gallery} alts={project.shots} />
+            {meta.walkthrough ? (
+              <PhoneWalkthrough shots={meta.gallery} alts={project.shots} />
+            ) : (
+              <Gallery shots={meta.gallery} alts={project.shots} />
+            )}
           </section>
         ) : (
           <p className="text-chalk-soft mt-16 text-base md:mt-24 md:text-lg">
