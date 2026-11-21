@@ -7,12 +7,13 @@ import { navItems } from '@/data/navigation';
 import { useScrollSpy } from '@/hooks/useScrollSpy';
 import { cn } from '@/utils/cn';
 import ThemeToggle from './ThemeToggle';
+import LanguageSwitch from './LanguageSwitch';
 
 const EASE = [0.16, 1, 0.3, 1] as const;
 const SECTION_IDS = navItems.map((i) => i.id);
 
 export default function Navbar() {
-  const { t, lang, toggleLang } = useLanguage();
+  const { t } = useLanguage();
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const activeId = useScrollSpy(SECTION_IDS);
@@ -89,13 +90,7 @@ export default function Navbar() {
 
         <div className="flex items-center gap-2">
           <ThemeToggle className={cn(pill, 'w-11 justify-center px-0 md:w-auto md:px-4')} />
-          <button
-            onClick={toggleLang}
-            className={pill}
-            aria-label={lang === 'en' ? 'ES, Español' : 'EN, English'}
-          >
-            {lang === 'en' ? 'ES' : 'EN'}
-          </button>
+          <LanguageSwitch />
           <button
             onClick={() => setOpen(true)}
             className={cn(pill, 'md:hidden')}
