@@ -40,7 +40,13 @@ export default function Navbar() {
 
   function go(id: string) {
     setOpen(false);
-    document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
+    const section = document.getElementById(id);
+    if (section) {
+      section.scrollIntoView({ behavior: 'smooth' });
+    } else {
+      // Desde la página de un proyecto, vuelve al inicio en esa sección.
+      window.location.href = id === 'hero' ? '/' : `/#${id}`;
+    }
   }
 
   const pill =

@@ -13,13 +13,18 @@ export interface NavItem {
 }
 
 export interface ProjectItem {
-  slug: 'medileny' | 'rentamaq';
+  slug: 'ecotrack' | 'municipalidad' | 'rentamaq' | 'cajamapp' | 'medileny';
   title: string;
+  /** Resumen corto para la tarjeta del inicio. */
   description: string;
   highlight?: string;
   tags: string[];
+  /** Repositorio público; si falta y `repoSoon` es true se avisa que viene pronto. */
   github?: string;
-  demo?: string;
-  /** Textos alternativos de las capturas, en el mismo orden que en el componente. */
+  repoSoon?: boolean;
+  /** Descripción completa de la página del proyecto. */
+  overview: string[];
+  features: string[];
+  /** Textos alternativos de la galería, en el mismo orden que `data/projects.ts`. */
   shots: string[];
 }
