@@ -14,6 +14,8 @@ export type ArtKey = 'eco' | 'city' | 'rent' | 'map' | 'food';
 export interface GalleryShot {
   src: string;
   kind: 'desktop' | 'phone';
+  /** Índice del grupo (pestaña) en `groups` del proyecto, si la galería es por pestañas. */
+  group?: number;
   themed?: boolean;
   width: number;
   height: number;
@@ -26,7 +28,8 @@ export interface ProjectMeta {
   /** Portada con fotos reales en la tarjeta del inicio. */
   cover?:
     | { kind: 'photo'; src: string; themed?: boolean; position: string }
-    | { kind: 'phones'; srcs: string[] };
+    | { kind: 'phones'; srcs: string[] }
+    | { kind: 'browser'; src: string; themed?: boolean };
   /** Capturas reales; el texto alternativo de cada una está en `i18n` (`shots`). */
   gallery: GalleryShot[];
   /** Muestra la galería como recorrido interactivo de una app móvil. */
@@ -44,25 +47,25 @@ export const PROJECTS: Record<ProjectSlug, ProjectMeta> = {
   municipalidad: {
     slug: 'municipalidad',
     art: 'city',
-    cover: { kind: 'photo', src: 'municipalidad-portal', position: 'object-left-top' },
+    cover: { kind: 'browser', src: 'municipalidad-portal' },
     gallery: [
-      { src: 'municipalidad-portal', ...DESKTOP },
-      { src: 'municipalidad-noticia', ...DESKTOP },
-      { src: 'municipalidad-tramites', ...DESKTOP },
-      { src: 'municipalidad-tramite', ...DESKTOP },
-      { src: 'municipalidad-transparencia', ...DESKTOP },
-      { src: 'municipalidad-organigrama', ...DESKTOP },
-      { src: 'municipalidad-busqueda', ...DESKTOP },
-      { src: 'municipalidad-galeria', ...DESKTOP },
-      { src: 'municipalidad-agenda', ...DESKTOP },
-      { src: 'municipalidad-admin', ...DESKTOP },
-      { src: 'municipalidad-contenido', ...DESKTOP },
-      { src: 'municipalidad-nuevo', ...DESKTOP },
-      { src: 'municipalidad-institucional', ...DESKTOP },
-      { src: 'municipalidad-movil', ...MUNI_PHONE },
-      { src: 'municipalidad-movil-menu', ...MUNI_PHONE },
-      { src: 'municipalidad-movil-tramite', ...MUNI_PHONE },
-      { src: 'municipalidad-movil-busqueda', ...MUNI_PHONE },
+      { src: 'municipalidad-portal', group: 0, ...DESKTOP },
+      { src: 'municipalidad-noticia', group: 0, ...DESKTOP },
+      { src: 'municipalidad-tramites', group: 0, ...DESKTOP },
+      { src: 'municipalidad-tramite', group: 0, ...DESKTOP },
+      { src: 'municipalidad-transparencia', group: 0, ...DESKTOP },
+      { src: 'municipalidad-organigrama', group: 0, ...DESKTOP },
+      { src: 'municipalidad-busqueda', group: 0, ...DESKTOP },
+      { src: 'municipalidad-galeria', group: 0, ...DESKTOP },
+      { src: 'municipalidad-agenda', group: 0, ...DESKTOP },
+      { src: 'municipalidad-admin', group: 1, ...DESKTOP },
+      { src: 'municipalidad-contenido', group: 1, ...DESKTOP },
+      { src: 'municipalidad-nuevo', group: 1, ...DESKTOP },
+      { src: 'municipalidad-institucional', group: 1, ...DESKTOP },
+      { src: 'municipalidad-movil', group: 2, ...MUNI_PHONE },
+      { src: 'municipalidad-movil-menu', group: 2, ...MUNI_PHONE },
+      { src: 'municipalidad-movil-tramite', group: 2, ...MUNI_PHONE },
+      { src: 'municipalidad-movil-busqueda', group: 2, ...MUNI_PHONE },
     ],
   },
   rentamaq: {
@@ -95,7 +98,7 @@ export const PROJECTS: Record<ProjectSlug, ProjectMeta> = {
   medileny: {
     slug: 'medileny',
     art: 'food',
-    cover: { kind: 'photo', src: 'medileny-mesas', themed: true, position: 'object-left-top' },
+    cover: { kind: 'browser', src: 'medileny-mesas', themed: true },
     gallery: [
       { src: 'medileny-mesas', themed: true, ...DESKTOP },
       { src: 'medileny-dashboard', themed: true, ...DESKTOP },

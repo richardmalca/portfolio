@@ -68,6 +68,7 @@ export const en = {
         tags: ['Next.js', 'TypeScript', 'Auth.js', 'SQLite'],
         github: 'https://github.com/richardmalca/webmunicipal',
         demo: 'https://webmunicipal-beta.vercel.app/',
+        groups: ['Public portal', 'Admin panel', 'On a phone'],
         overview: [
           'A generic municipal portal with a CMS. Villa del Sol is the fictional town of the demo. It shows how a resident can find information and how a municipal team can keep it up to date from a panel.',
           'The public portal brings together news and multimedia, procedures and transparency, institutional information and search. The admin panel manages posts, drafts, attachments and institutional records, and a dashboard counts public page views by day and route.',

@@ -461,3 +461,28 @@ input:-webkit-autofill {
   display: none;
 }
 
+.no-scrollbar {
+  scrollbar-width: none;
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+@keyframes shot-fade {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+.shot-fade {
+  animation: shot-fade 0.28s var(--ease-out-expo) both;
+}
+@media (prefers-reduced-motion: reduce) {
+  .shot-fade {
+    animation: none;
+  }
+}

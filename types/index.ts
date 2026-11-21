@@ -24,6 +24,8 @@ export interface ProjectItem {
   repoSoon?: boolean;
   /** Sitio publicado en vivo. */
   demo?: string;
+  /** Etiquetas de las pestañas de la galería (índice = `group` de cada captura). */
+  groups?: string[];
   /** Descripción completa de la página del proyecto. */
   overview: string[];
   features: string[];

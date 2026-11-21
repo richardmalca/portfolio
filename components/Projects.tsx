@@ -34,7 +34,7 @@ const TILES: Tile[] = [
   },
   {
     place: 'md:col-start-7 md:col-span-6 md:row-start-2',
-    size: 'min-h-[30rem] md:min-h-[28rem]',
+    size: 'min-h-[30rem] md:min-h-[34rem]',
     title: 'text-[13vw] md:text-[4.6vw]',
   },
   {
@@ -96,6 +96,21 @@ function ProjectTile({ project, tile, view }: { project: ProjectItem; tile: Tile
                   sizes="(min-width: 768px) 50vw, 100vw"
                   className={meta.cover.position}
                 />
+              ) : meta.cover?.kind === 'browser' ? (
+                <div className="absolute inset-0 flex items-start justify-center px-5 pt-12 md:px-6 md:pt-14">
+                  <div className="ring-chalk/20 bg-ground w-full max-w-[28rem] overflow-hidden rounded-xl shadow-2xl ring-1">
+                    <div className="bg-ground-deep flex items-center gap-1.5 px-3 py-2">
+                      <span className="bg-chalk/25 size-2 rounded-full" />
+                      <span className="bg-chalk/25 size-2 rounded-full" />
+                      <span className="bg-chalk/25 size-2 rounded-full" />
+                    </div>
+                    <ThemedShot
+                      shot={{ ...meta.cover, width: 1800, height: 1125 }}
+                      alt=""
+                      sizes="(min-width: 768px) 40vw, 90vw"
+                    />
+                  </div>
+                </div>
               ) : meta.cover?.kind === 'phones' ? (
                 <div className="absolute inset-0 flex items-center justify-center gap-3 px-6 md:gap-5">
                   {meta.cover.srcs.map((src, i) => (

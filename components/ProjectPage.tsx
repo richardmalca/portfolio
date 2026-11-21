@@ -11,6 +11,7 @@ import ScrollProgress from './ScrollProgress';
 import WhatsAppButton from './WhatsAppButton';
 import Gallery from './Gallery';
 import PhoneWalkthrough from './PhoneWalkthrough';
+import Showcase from './Showcase';
 import { ArtCity, ArtEco, ArtFood, ArtMap, ArtRent } from './ProjectArt';
 import { BigTitle, Reveal } from './ui';
 
@@ -153,6 +154,8 @@ export default function ProjectPage({ slug }: { slug: ProjectSlug }) {
             </h2>
             {meta.walkthrough ? (
               <PhoneWalkthrough shots={meta.gallery} alts={project.shots} />
+            ) : project.groups ? (
+              <Showcase shots={meta.gallery} alts={project.shots} groups={project.groups} />
             ) : (
               <Gallery shots={meta.gallery} alts={project.shots} />
             )}
